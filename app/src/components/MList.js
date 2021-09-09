@@ -1,10 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 const MList = (props) => {
-  const { missons } = props;
+  const { missons, isLoading, error } = props;
+
+  //   if (isLoading) {
+  //
+  //   }
+
   return (
     <div>
       <h2>SpaceX Missons</h2>
+      {isLoading ? <p>please be patient Loading...</p> : null}
+      {error ? (
+        <p style={{ color: 'red', fontWeight: 'bold' }}>{error}</p>
+      ) : null}
+
       {missons.map((misssion) => (
         <div>
           <h4>{misssion.mission_name}</h4>

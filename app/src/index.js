@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-
+import { composeWithDevTools } from 'redux-devtools-extension';
 //redux helper
 import missonReducer from './store/reducers'; // reducer
 
@@ -16,7 +16,10 @@ import App from './App';
 //stylesheet
 import './index.css';
 
-const store = createStore(missonReducer, applyMiddleware(thunk, logger));
+const store = createStore(
+  missonReducer,
+  composeWithDevTools(applyMiddleware(thunk, logger)),
+);
 store.getState();
 
 ReactDOM.render(
