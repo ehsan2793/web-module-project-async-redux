@@ -1,17 +1,16 @@
 // libraries
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-//redux
-
 import thunk from 'redux-thunk';
-import missonReducer from './store/reducers';
 import logger from 'redux-logger';
 
+//redux helper
+import missonReducer from './store/reducers'; // reducer
+
 //component
+
 import App from './App';
 
 //stylesheet
