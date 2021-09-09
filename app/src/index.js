@@ -1,11 +1,23 @@
+// libraries
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-const store = createStore(reducer);
+//redux
+
+import thunk from 'redux-thunk';
+import missonReducer from './store/reducers';
+import logger from 'redux-logger';
+
+//component
+import App from './App';
+
+//stylesheet
+import './index.css';
+
+const store = createStore(missonReducer, applyMiddleware(thunk, logger));
 store.getState();
 
 ReactDOM.render(
